@@ -180,6 +180,11 @@ if(contact.equals("")){
         CONTACT.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         CONTACT.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         CONTACT.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "CONTACT", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI", 1, 12))); // NOI18N
+        CONTACT.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                CONTACTKeyPressed(evt);
+            }
+        });
         getContentPane().add(CONTACT, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 210, 40));
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -250,6 +255,17 @@ if(contact.equals("")){
        JOptionPane.showMessageDialog(this, "USERNAME ALREADY EXIST");
        }
     }//GEN-LAST:event_UNFocusLost
+
+    private void CONTACTKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CONTACTKeyPressed
+       char c =evt.getKeyChar();
+        if(Character.isLetter(c)){
+        CONTACT.setEditable(false);
+        JOptionPane.showMessageDialog(this, "Please enter number only");
+        }else{
+        CONTACT.setEditable(true);
+        
+        }
+    }//GEN-LAST:event_CONTACTKeyPressed
 
     /**
      * @param args the command line arguments

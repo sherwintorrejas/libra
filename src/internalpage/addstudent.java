@@ -165,12 +165,22 @@ public class addstudent extends javax.swing.JInternalFrame {
         ECT.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         ECT.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         ECT.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "ENTER CONTACT", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI", 1, 12))); // NOI18N
+        ECT.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                ECTKeyPressed(evt);
+            }
+        });
         jPanel2.add(ECT, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 210, 40));
 
         EY.setBackground(new java.awt.Color(241, 195, 4));
         EY.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         EY.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         EY.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "ENTER YEAR", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI", 1, 12))); // NOI18N
+        EY.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                EYKeyPressed(evt);
+            }
+        });
         jPanel2.add(EY, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 210, 40));
 
         EC.setBackground(new java.awt.Color(241, 195, 4));
@@ -266,6 +276,28 @@ public class addstudent extends javax.swing.JInternalFrame {
         ECT.setText(""+model.getValueAt(rowIndex, 5));
         }
     }//GEN-LAST:event_studentdetMouseClicked
+
+    private void EYKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EYKeyPressed
+       char c =evt.getKeyChar();
+        if(Character.isLetter(c)){
+        EY.setEditable(false);
+        JOptionPane.showMessageDialog(this, "Please enter number only");
+        }else{
+        EY.setEditable(true);
+        
+        }
+    }//GEN-LAST:event_EYKeyPressed
+
+    private void ECTKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ECTKeyPressed
+        char c =evt.getKeyChar();
+        if(Character.isLetter(c)){
+        ECT.setEditable(false);
+        JOptionPane.showMessageDialog(this, "Please enter number only");
+        }else{
+        ECT.setEditable(true);
+        
+        }
+    }//GEN-LAST:event_ECTKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -260,7 +260,7 @@ public class addbook extends javax.swing.JInternalFrame {
         char c =evt.getKeyChar();
         if(Character.isLetter(c)){
         ED.setEditable(false);
-        JOptionPane.showMessageDialog(this, "PLease enter number only");
+        JOptionPane.showMessageDialog(this, "Please enter number only");
         }else{
         ED.setEditable(true);
         
