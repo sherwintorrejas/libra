@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -66,6 +66,35 @@ public class addstudent extends javax.swing.JInternalFrame {
         }
     
     }
+    public boolean validation(){
+  String name= EN.getText();
+String lastnmae =  ELN.getText();
+  String course= EC.getText();
+String year= EY.getText();
+String contact= ECT.getText();
+ if (name.equals("")){
+ JOptionPane.showMessageDialog(this, "PLEASE ENTER STUDENT NAME");
+ return false;
+ }
+ if(lastnmae.equals("")){
+ JOptionPane.showMessageDialog(this, "PLEASE ENTER LASTNAME");
+ return false;
+ }
+if(course.equals("")){
+ JOptionPane.showMessageDialog(this, "PLEASE ENTER COURSE");
+ return false;
+ }     
+ if(year.equals("")){
+ JOptionPane.showMessageDialog(this, "PLEASE ENTER YEAR");
+ return false;
+ }    
+  if(contact.equals("")){
+ JOptionPane.showMessageDialog(this, "PLEASE ENTER CONTACT");
+ return false;
+ }        
+ 
+   return true;  
+ }
     
      
     /**
@@ -212,7 +241,8 @@ public class addstudent extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void UPDATEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UPDATEActionPerformed
-    DBCONNECTOR dbc = new DBCONNECTOR();
+      if(validation()== true){
+        DBCONNECTOR dbc = new DBCONNECTOR();
         int num = dbc.updateData("UPDATE student_details "
        + "SET NAME = '"+EN.getText()+"', LASTNAME='"+ELN.getText()+"', "
                         + "COURSE ='"+EC.getText()+"', YEAR='"+EY.getText()+"', CONTACT='"+ECT.getText()+"'  "
@@ -225,14 +255,17 @@ public class addstudent extends javax.swing.JInternalFrame {
            displayData();
            reset();
         }
+      }
     }//GEN-LAST:event_UPDATEActionPerformed
 
     private void ADDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ADDActionPerformed
-       DBCONNECTOR dbc = new DBCONNECTOR();
+        if(validation()== true){
+        DBCONNECTOR dbc = new DBCONNECTOR();
         dbc.insertData("INSERT INTO student_details ( NAME, LASTNAME, COURSE, YEAR, CONTACT) "
                 + "VALUES ('"+EN.getText()+"', '"+ELN.getText()+"','"+EC.getText()+"','"+EY.getText()+"','"+ECT.getText()+"')");
         displayData();
         reset();
+        }
     }//GEN-LAST:event_ADDActionPerformed
 
     private void DELETEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DELETEActionPerformed

@@ -60,6 +60,36 @@ public class addbook extends javax.swing.JInternalFrame {
         }
     
     }
+      public boolean validation(){
+  String isbn= EN.getText();
+String tittle =  EBT.getText();
+  String genre = EG.getText();
+String ed= ED.getText();
+String qauntity= QUANT.getText();
+ if (isbn.equals("")){
+ JOptionPane.showMessageDialog(this, "PLEASE ENTER ISBN");
+ return false;
+ }
+ if(tittle.equals("")){
+ JOptionPane.showMessageDialog(this, "PLEASE ENTER TITTLE");
+ return false;
+ }
+if(genre.equals("")){
+ JOptionPane.showMessageDialog(this, "PLEASE ENTER GENRE");
+ return false;
+ }     
+ if(ed.equals("")){
+ JOptionPane.showMessageDialog(this, "PLEASE ENTER EDITION");
+ return false;
+ }    
+  if(qauntity.equals("")){
+ JOptionPane.showMessageDialog(this, "PLEASE ENTER QUANTITY");
+ return false;
+ }        
+ 
+   return true;  
+ }
+   
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -200,15 +230,18 @@ public class addbook extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_EBTActionPerformed
 
     private void ADDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ADDActionPerformed
+     if(validation()== true){
+        
         DBCONNECTOR dbc = new DBCONNECTOR();
         dbc.insertData("INSERT INTO book_details ( ISBN, TITTLE, GENRE, EDITION, QUANTITY) "
                 + "VALUES ('"+EN.getText()+"','"+EBT.getText()+"','"+EG.getText()+"','"+ED.getText()+"','"+QUANT.getText()+"')");
         displayData();
         reset();
-                  
+     }              
     }//GEN-LAST:event_ADDActionPerformed
 
     private void UPDATEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UPDATEActionPerformed
+       if(validation()== true){
         DBCONNECTOR dbc = new DBCONNECTOR();
         int num = dbc.updateData("UPDATE book_details SET TITTLE "
                 + "= '"+EBT.getText()+"', GENRE = '"+EG.getText()+"', EDITION "
@@ -220,7 +253,7 @@ public class addbook extends javax.swing.JInternalFrame {
         displayData();
         reset();
         }
-        
+       }  
     }//GEN-LAST:event_UPDATEActionPerformed
 
     private void DELETEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DELETEActionPerformed
