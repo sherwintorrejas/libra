@@ -36,7 +36,7 @@ public class addbook extends javax.swing.JInternalFrame {
    QUANT.setText("");
    }
     
-    
+    //for display data
     public void displayData(){
         try{
        
@@ -60,6 +60,7 @@ public class addbook extends javax.swing.JInternalFrame {
         }
     
     }
+    //validation
       public boolean validation(){
   String isbn= EN.getText();
 String tittle =  EBT.getText();

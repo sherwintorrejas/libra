@@ -66,6 +66,7 @@ public class addstudent extends javax.swing.JInternalFrame {
         }
     
     }
+    //validation
     public boolean validation(){
   String name= EN.getText();
 String lastnmae =  ELN.getText();
